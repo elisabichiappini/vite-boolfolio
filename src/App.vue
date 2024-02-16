@@ -26,9 +26,15 @@ export default {
     methods: {
       //chiamata progetti
       getProject() {
-        axios.get(this.store.baseUrl + this.store.apiUrl.projects)
+        axios.get(this.store.baseUrl + this.store.apiUrl.projects), 
+          { 
+            params: {
+              page:projectApiPage,
+            }
+          }
         .then(response => {
-          this.store.projects = response.data.results;
+          //cambiato il codice per la visualizzazione dei risultati
+          this.store.projects = response.data.results.data;
       
         }).catch((error)=>{
           console.log(error);

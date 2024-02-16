@@ -27,7 +27,7 @@ export default {
       //chiamata progetti
       getProject() {
         axios
-        .get(this.store.baseUrl + this.store.apiUrl)
+        .get(this.store.baseUrl + this.store.apiUrl.projects)
         .then(response => {
           //cambiato il codice per la visualizzazione dei risultati
         this.store.projects = response.data.results.data;

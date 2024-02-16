@@ -18,6 +18,7 @@ export default {
     data() {
       return {
         store,
+        page: ''
       }
     },
     created() {
@@ -26,17 +27,12 @@ export default {
     methods: {
       //chiamata progetti
       getProject() {
-        axios.get(this.store.baseUrl + this.store.apiUrl.projects), 
-          { 
-            params: {
-              page:projectApiPage,
-            }
-          }
+        axios
+        .get(this.store.baseUrl + this.store.apiUrl)
         .then(response => {
           //cambiato il codice per la visualizzazione dei risultati
-          this.store.projects = response.data.results.data;
-      
-        }).catch((error)=>{
+          this.store.projects = response.data.results.data;})
+        .catch((error)=>{
           console.log(error);
         });
       }

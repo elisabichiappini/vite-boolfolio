@@ -1,18 +1,27 @@
 <script>
+//importazione stato globale
+import { store } from '../store';
+//importazione componenti
+import ListProjects from './ListProjects.vue';
     export default {
         name: 'Main',
-        props: ['props'],
-    }
+        components : {
+          ListProjects
+},
+        data() {
+          return {
+            store,
+          }
+      }
+}
 </script>
 
 <template>
-  <main>
-    contenuto
+  <main class="container">
+    <ListProjects></ListProjects>
   </main>
 </template>
 
 <style scoped>
-main {
-  background-color: rgb(188, 195, 195);
-}
+
 </style>

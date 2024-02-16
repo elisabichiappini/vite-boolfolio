@@ -1,6 +1,9 @@
 <script>
+
 //importazione axios
 import axios from 'axios';
+//importazione stato globale
+import { store } from './store';
 //importazione componenti
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
@@ -14,22 +17,19 @@ export default {
     },
     data() {
       return {
-        projects : [],
-        baseUrl: 'http://127.0.0.1:8000',
-        apiUrl: {
-          projects: '/api/projects'
-        }
+        store,
       }
     },
     created() {
       this.getProject();
     },
     methods: {
+      //chiamata progetti
       getProject() {
-        axios.get(this.baseUrl + this.apiUrl.projects)
+        axios.get(this.store.baseUrl + this.store.apiUrl.projects)
         .then(response => {
-          // this.projects = response.data.results;
-          console.log(response)
+          this.store.projects = response.data.results;
+      
         }).catch((error)=>{
           console.log(error);
         });
@@ -40,7 +40,7 @@ export default {
 
 <template>
   <AppHeader></AppHeader>
-  <AppMain :projects="projects"></AppMain>
+  <AppMain></AppMain>
   <AppFooter></AppFooter>
 </template>
 

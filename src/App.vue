@@ -18,7 +18,6 @@ export default {
     data() {
       return {
         store,
-        page: ''
       }
     },
     created() {
@@ -31,7 +30,8 @@ export default {
         .get(this.store.baseUrl + this.store.apiUrl)
         .then(response => {
           //cambiato il codice per la visualizzazione dei risultati
-          this.store.projects = response.data.results.data;})
+        this.store.projects = response.data.results.data;
+        })
         .catch((error)=>{
           console.log(error);
         });

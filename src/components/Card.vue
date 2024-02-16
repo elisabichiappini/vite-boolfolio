@@ -9,8 +9,7 @@ export default {
         }
     },
     props: {
-        title: String,
-        description: String,
+        project: Object,
     }
 }
 </script>
@@ -19,8 +18,8 @@ export default {
     <div class="col-sm-4 mb-3 mb-sm-0 g-3">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">{{ title }}</h5>
-                <p class="card-text">{{ description }}</p>
+                <h5 class="card-title">{{ project.title }}</h5>
+                <p class="card-text">{{ project.description }}</p>
                 <a href="#" class="btn btn-primary">Mostra</a>
             </div>
         </div>

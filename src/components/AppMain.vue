@@ -7,13 +7,13 @@ import ListProjects from './ListProjects.vue';
         name: 'Main',
         components : {
           ListProjects
-},
+        },
         data() {
           return {
             store,
           }
+        }
       }
-}
 </script>
 
 <template>

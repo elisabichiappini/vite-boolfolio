@@ -1,13 +1,13 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import AppHome from './pages/AppHome';
-import AppContacts from './pages/AppContacts';
-import AppAbout from './pages/AppAbout';
-import ProjectsLlist from './pages/ProjectsLlist';
+import AppHome from './pages/AppHome.vue';
+import AppContacts from './pages/AppContacts.vue';
+import AppAbout from './pages/AppAbout.vue';
+import ProjectsLlist from './pages/ProjectsLlist.vue';
 
 const router = createRouter({
-    history:createWebHistory(),
-    route: [
+    history: createWebHistory(),
+    routes: [
         {
             path: '/',
             name: 'home',
@@ -30,5 +30,4 @@ const router = createRouter({
         },
     ]
 });
-
-export default router;
+export { router };

@@ -7,5 +7,7 @@ import * as bootstrap from 'bootstrap';
 
 // or, specify which plugins you need:
 import { Tooltip, Toast, Popover } from 'bootstrap';
+//importazione file routerjs
+import { router } from './router';
 
-createApp(App).mount('#app');
+createApp(App).use(router).mount('#app');

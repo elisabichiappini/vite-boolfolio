@@ -4,7 +4,7 @@ import { store } from '../store';
 //importazione componente
 import Card from './Card.vue';
  export default {
-    name: 'ListProjects',
+    name: 'ListCard',
     data() {
         return {
             store
@@ -17,14 +17,15 @@ import Card from './Card.vue';
 </script>
 
 <template>
-    <div class="container">
-        <div class="row">
-            <Card v-for="project in store.projects"
-            :project="project">
-            </Card>
+    <main>
+        <div class="container">
+            <div class="row">
+                <Card v-for="project in store.projects"
+                :project="project">
+                </Card>
+            </div>
         </div>
-    </div>
-    
+    </main>
 </template>
 
 <style scoped>

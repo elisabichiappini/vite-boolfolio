@@ -18,7 +18,7 @@ const router = createRouter({
             component: AppAbout
         },
         {
-            path: '/portfolio',
+            path: '/keyup-portfolio',
             name: 'projects',
             component: ProjectsList
         },

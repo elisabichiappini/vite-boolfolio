@@ -15,13 +15,19 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">Progetti</a>
+                            <!-- link rotta -->
+                            <router-link :to="{name: 'home'}" class="nav-link">Home</router-link>
+                            <!-- link rotta -->
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
+                            <!-- link rotta -->
+                            <router-link :to="{name: 'projects'}" class="nav-link">Portfolio progetti</router-link>
+                            <!-- link rotta -->
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contatti</a>
+                            <!-- link rotta -->
+                            <router-link :to="{name: 'about'}" class="nav-link">About</router-link>
+                            <!-- link rotta -->
                         </li>
                     </ul>
                 </div>

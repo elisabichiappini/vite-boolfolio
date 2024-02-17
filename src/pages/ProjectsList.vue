@@ -25,11 +25,12 @@ export default {
                 }
             })
             .then(response => {
-            //cambiato il codice per la visualizzazione dei risultati
-            this.store.projects = response.data.results.data;
+                console.log(response.data);
+                //cambiato il codice per la visualizzazione dei risultati
+                this.store.responseData = response.data;
             })
-            .catch((error)=>{
-            console.log(error);
+                .catch((error)=>{
+                console.log(error);
             });
         },
         prevPage() {
@@ -56,10 +57,10 @@ export default {
         <nav>
             <ul class="d-flex justify-content-between my-4 px-1">
                 <li class="list-unstyled">
-                    <button class="btn btn-primary" @click="prevPage">Prev</button>
+                    <button class="btn btn-primary" @click="prevPage" v-show="store.responseData.results?.prev_page_url">Prev</button>
                 </li>
                 <li class="d-flex justify-content-between list-unstyled">
-                    <button class="btn btn-primary" @click="nextPage">Next</button>
+                    <button class="btn btn-primary" @click="nextPage"  v-show="store.responseData.results?.next_page_url">Next</button>
                 </li>
             </ul>
         </nav>

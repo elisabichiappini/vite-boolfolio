@@ -20,7 +20,7 @@ import Card from './Card.vue';
     <main>
         <div class="container">
             <div class="row">
-                <Card v-for="project in store.projects"
+                <Card v-for="project in store.responseData.results?.data"
                 :project="project">
                 </Card>
             </div>

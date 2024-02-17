@@ -4,6 +4,7 @@ import axios from 'axios';
 import { store } from '../store';
 //importo componenti
 import Card from '../components/Card.vue';
+import Loading from '../components/Loading.vue';
 export default {
     name: 'ProjectsList',
     data() {
@@ -16,6 +17,7 @@ export default {
     },
     components : {
         Card,
+        Loading,
     },
     methods: {
         //chiamata progetti
@@ -61,7 +63,7 @@ export default {
 <template>
     <main>
         <div class="container">
-            <div class="row" v-if="loading">Caricamento in corso...</div>
+            <Loading v-if="loading"></Loading>
             <div class="row" v-else>
                 <nav>
                     <ul class="d-flex justify-content-between my-4 px-1">

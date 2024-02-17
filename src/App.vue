@@ -42,7 +42,9 @@ export default {
 
 <template>
   <AppHeader></AppHeader>
+  <!--router vuejs-->
   <router-view></router-view>
+  <!--router vuejs-->
   <AppFooter></AppFooter>
 </template>
 

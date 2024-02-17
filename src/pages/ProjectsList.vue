@@ -1,9 +1,9 @@
 <script>
     export default {
-        name: 'AppProjectsList',
+        name: 'ProjectsList',
     }
 </script>
 
 <template>
-    list
+    <h2>projects list</h2>
 </template>

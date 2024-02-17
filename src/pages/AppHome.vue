@@ -5,5 +5,5 @@
 </script>
 
 <template>
-    home
+    <h2>home</h2>
 </template>

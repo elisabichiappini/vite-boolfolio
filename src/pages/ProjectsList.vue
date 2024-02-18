@@ -31,9 +31,12 @@ export default {
                 }
             })
             .then(response => {
-                console.log(response.data);
-                //cambiato il codice per la visualizzazione dei risultati
-                this.store.responseData = response.data;
+                if(response.data.success){
+                    //cambiato il codice per la visualizzazione dei risultati
+                    this.store.responseData = response.data;
+                } else {
+                    this.$router.push({ name: 'notFound'})
+                }
             })
             .catch((error)=>{
                 console.log(error);

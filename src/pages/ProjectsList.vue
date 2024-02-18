@@ -1,4 +1,5 @@
 <script>
+//importo axios
 import axios from 'axios';
 //importo lo stato globale
 import { store } from '../store';

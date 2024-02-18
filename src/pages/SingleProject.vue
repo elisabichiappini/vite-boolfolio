@@ -1,6 +1,9 @@
 <script>
     export default {
-        name: 'SingleProject'
+        name: 'SingleProject',
+        created() {
+            console.log(this.$route)
+        }
     }
 </script>
 

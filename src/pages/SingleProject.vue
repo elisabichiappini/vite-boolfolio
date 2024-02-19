@@ -14,7 +14,11 @@ export default {
             axios
             .get(this.store.baseUrl + this.store.apiUrl.projects + '/' +this.$route.params.slug)
             .then((response) => {
-                this.store.project = response.data.result;
+                if(response.data.result) {
+                    this.store.project = response.data.result;
+                } else {
+                    this.$router.push({ path: '/not-found'})
+                }
             })
             .catch((error) => {
                 console.log(error)

@@ -28,7 +28,7 @@ const router = createRouter({
         {
             //rotta 404
             path: '/:pathMatch(.*)*',
-            name: 'notFound',
+            name: 'not-found',
             component: NotFound,
         },
         {

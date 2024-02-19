@@ -31,12 +31,10 @@ export default {
                     page: this.currentPage,
                 }
             })
-            .then(response => {
+            .then((response) => {
                 if(response.data.success){
                     //cambiato il codice per la visualizzazione dei risultati
                     this.store.responseData = response.data;
-                } else {
-                    this.$router.push({ name: 'notFound'})
                 }
             })
             .catch((error)=>{
@@ -71,15 +69,8 @@ export default {
         }
     },
     created() {
-      this.getProject();
-      //monitorare quello che avviene in pagina - WATCH
-      this.$watch(
-            ()=> this.$route.params, (toParams, previousParams) => {
-                // console.log(this.$route);
-                this.currentPage = this.$route.query?.page ?? 1;
-                this.getProject();
-            }
-        )
+        this.currentPage = this.$route.query.page ?? 1;
+        this.getProject();
     },
 }
 </script>

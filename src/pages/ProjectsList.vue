@@ -6,6 +6,7 @@ import { store } from '../store';
 //importo componenti
 import Card from '../components/Card.vue';
 import Loading from '../components/Loading.vue';
+import ProjectSearch from '../components/ProjectSearch.vue';
 export default {
     name: 'ProjectsList',
     data() {
@@ -19,6 +20,7 @@ export default {
     components : {
         Card,
         Loading,
+        ProjectSearch
     },
     methods: {
         //chiamata progetti
@@ -29,6 +31,7 @@ export default {
             .get(this.store.baseUrl + this.store.apiUrl.projects, {
                 params: {
                     page: this.currentPage,
+                    key: this.store.projects.searchKey,
                 }
             })
             .then((response) => {
@@ -78,6 +81,7 @@ export default {
 <template>
     <main>
         <h1 class="text-center">Keyup portfolio</h1>
+        <ProjectSearch @search-project="getProject"></ProjectSearch>
         <div class="container">
             <Loading v-if="loading"></Loading>
             <div class="row" v-else>
@@ -87,10 +91,10 @@ export default {
                 <nav>
                     <ul class="d-flex justify-content-between my-4 px-1">
                         <li class="list-unstyled">
-                            <button class="btn btn-primary" @click="prevPage" v-show="store.responseData.results?.prev_page_url">Prev</button>
+                            <button class="btn btn-outline-dark" @click="prevPage" v-show="store.responseData.results?.prev_page_url">Prev</button>
                         </li>
                         <li class="d-flex justify-content-between list-unstyled">
-                            <button class="btn btn-primary" @click="nextPage"  v-show="store.responseData.results?.next_page_url">Next</button>
+                            <button class="btn btn-outline-dark" @click="nextPage"  v-show="store.responseData.results?.next_page_url">Next</button>
                         </li>
                     </ul>
                 </nav>

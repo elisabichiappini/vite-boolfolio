@@ -48,7 +48,7 @@ export default {
             })
         },
         prevPage() {
-            console.log('prev');
+            // console.log('prev');
             this.currentPage--;
             this.getProject();
             this.$router.push({
@@ -59,7 +59,7 @@ export default {
             })
         },
         nextPage() {
-            console.log('next');
+            // console.log('next');
             this.currentPage++;
             this.getProject();
             this.$router.push({
@@ -72,6 +72,14 @@ export default {
     },
     created() {
       this.getProject();
+      //monitorare quello che avviene in pagina - WATCH
+      this.$watch(
+            ()=> this.$route.params, (toParams, previousParams) => {
+                // console.log(this.$route);
+                this.currentPage = this.$route.query?.page ?? 1;
+                this.getProject();
+            }
+        )
     },
 }
 </script>

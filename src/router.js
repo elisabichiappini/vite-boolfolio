@@ -15,11 +15,6 @@ const router = createRouter({
             component: AppHome,
         },
         {
-            path: '/about',
-            name: 'about',
-            component: AppAbout,
-        },
-        {
             path: '/keyup-portfolio',
             name: 'projects',
             component: ProjectsList,
@@ -35,6 +30,11 @@ const router = createRouter({
             path: '/:pathMatch(.*)*',
             name: 'notFound',
             component: NotFound,
+        },
+        {
+            path: '/about',
+            name: 'about',
+            component: AppAbout,
         }
     ]
 })

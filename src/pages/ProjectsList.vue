@@ -51,11 +51,23 @@ export default {
             console.log('prev');
             this.currentPage--;
             this.getProject();
+            this.$router.push({
+                name: 'projects',
+                query: {
+                    page: this.currentPage,
+                }
+            })
         },
         nextPage() {
             console.log('next');
             this.currentPage++;
             this.getProject();
+            this.$router.push({
+                name: 'projects',
+                query: {
+                    page: this.currentPage,
+                }
+            })
         }
     },
     created() {
@@ -66,9 +78,13 @@ export default {
 
 <template>
     <main>
+        <h1 class="text-center">Keyup portfolio</h1>
         <div class="container">
             <Loading v-if="loading"></Loading>
             <div class="row" v-else>
+                <Card v-for="project in store.responseData.results?.data"
+                :project="project">
+                </Card>
                 <nav>
                     <ul class="d-flex justify-content-between my-4 px-1">
                         <li class="list-unstyled">
@@ -79,9 +95,6 @@ export default {
                         </li>
                     </ul>
                 </nav>
-                <Card v-for="project in store.responseData.results?.data"
-                :project="project">
-                </Card>
             </div>
         </div>
     </main>

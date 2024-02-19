@@ -17,6 +17,7 @@ export default {
                 if(response.data.result) {
                     this.store.project = response.data.result;
                 } else {
+                    //rotta con path not-found in url se non troviamo il progetto
                     this.$router.push({ path: '/not-found'})
                 }
             })

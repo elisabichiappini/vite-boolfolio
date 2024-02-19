@@ -10,6 +10,6 @@ export const store = reactive ({
         {
             projects: '/api/projects'
         },
-        imageUrl: 'http://127.0.0.1:8000/storage/',
+    storageImage: '/storage/',
     loandig: true,
 })

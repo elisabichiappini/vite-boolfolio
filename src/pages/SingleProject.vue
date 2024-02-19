@@ -36,5 +36,5 @@ export default {
     <router-link :to="{ name: 'projects' }">Lista progetti</router-link>
     <h1>{{ store.project.title }}</h1>
     <p>{{ store.project.description }}</p>
-    <img v-if="store.project.project_img" class="img-fluid" :src="store.imageUrl + store.project.project_img" :alt="store.projects.title">
+    <img v-if="store.project.project_img" class="img-fluid" :src="store.baseUrl + store.storageImage + store.project.project_img" :alt="store.projects.title">
 </template>

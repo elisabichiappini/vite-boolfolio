@@ -12,7 +12,6 @@ export default {
     data() {
         return {
             store,
-            currentPage: 1,
             //variabile loader a false
             loading: false,
             //variabile lista errori per non superamento validazione della ricerca
@@ -34,7 +33,7 @@ export default {
             axios
             .get(this.store.baseUrl + this.store.apiUrl.projects, {
                 params: {
-                    page: this.currentPage,
+                    page: this.store.currentPage, //to do
                     key: this.store.projects.searchKey,
                 }
             })
@@ -57,29 +56,29 @@ export default {
         },
         prevPage() {
             // console.log('prev');
-            this.currentPage--;
-            this.getProject();
+            this.store.projects.currentPage--;
             this.$router.push({
                 name: 'projects',
                 query: {
-                    page: this.currentPage, key: this.store.projects.searchKey
+                    page: this.store.projects.currentPage, key: this.store.projects.searchKey
                 }
-            })
+            }),
+            this.getProject();
         },
         nextPage() {
             // console.log('next');
-            this.currentPage++;
-            this.getProject();
+            this.store.projects.currentPage++;
             this.$router.push({
                 name: 'projects',
                 query: {
-                    page: this.currentPage, key: this.store.projects.searchKey
+                    page: this.store.projects.currentPage, key: this.store.projects.searchKey
                 }
-            })
+            }),
+            this.getProject();
         }
     },
     created() {
-        this.currentPage = this.$route.query.page ?? 1;
+        this.store.projects.currentPage = this.$route.query.page ?? 1;
         this.store.projects.searchKey = this.$route.query.key?? null;
         this.getProject();
     },

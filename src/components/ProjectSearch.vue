@@ -10,6 +10,7 @@ export default {
     },
     methods: {
         search() {
+            this.store.projects.currentPage = 1;
             console.log('sto cercando');
             this.$router.push({
                 name: 'projects',

@@ -5,6 +5,7 @@ export const store = reactive ({
     responseData: {},
     project: {},
     projects: {
+        currentPage: null,
         searchKey: '',
     },
     baseUrl: 'http://127.0.0.1:8000',

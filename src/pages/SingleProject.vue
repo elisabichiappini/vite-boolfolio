@@ -33,7 +33,7 @@ export default {
 </script>
 
 <template>
-    <router-link :to="{ name: 'projects' }">Lista progetti</router-link>
+    <router-link :to="{ name: 'projects', query: { page: store.projects.currentPage, key: store.projects.searchKey }}">Lista progetti</router-link>
     <h1>{{ store.project.title }}</h1>
     <p>{{ store.project.description }}</p>
     <img v-if="store.project.project_img" class="img-fluid" :src="store.baseUrl + store.storageImage + store.project.project_img" :alt="store.projects.title">

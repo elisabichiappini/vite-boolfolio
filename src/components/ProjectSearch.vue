@@ -20,10 +20,10 @@ export default {
 
 <template>
     <section>
-        <form action="" @submit.prevent="search" class="container d-flex">
+        <form action="" @submit.prevent="search" class="container d-flex py-1">
             <label for="search"></label>
             <input v-model="store.projects.searchKey" class="form-control border" type="text" placeholder="Cerca..." id="search" name="search">
-            <button class="btn btn-outline-dark">Cerca</button>
+            <button class="btn btn-outline-dark ms-4">Cerca</button>
         </form>
     </section>
 </template>

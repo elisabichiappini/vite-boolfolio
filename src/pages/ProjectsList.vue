@@ -15,6 +15,8 @@ export default {
             currentPage: 1,
             //variabile loader a false
             loading: false,
+            //variabile lista errori per non superamento validazione della ricerca
+            errors: null,
         }
     },
     components : {
@@ -42,6 +44,9 @@ export default {
             })
             .catch((error)=>{
                 console.log(error);
+                //se incaso di errore di ricerca svuoto la lista progetti
+                this.store.responseData.results.data = [];
+                this.errors = error.response.data.message;
             })
             .finally(() => {
                 //a prescindere dal risultato torna a false finito il caricamento
@@ -79,9 +84,10 @@ export default {
 </script>
 
 <template>
-    <main>
+    <main class="container">
         <h1 class="text-center">Keyup portfolio</h1>
         <ProjectSearch @search-project="getProject"></ProjectSearch>
+        <span v-if="errors">{{ errors }}</span>
         <div class="container">
             <Loading v-if="loading"></Loading>
             <div class="row" v-else>

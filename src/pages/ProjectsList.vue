@@ -33,7 +33,7 @@ export default {
             axios
             .get(this.store.baseUrl + this.store.apiUrl.projects, {
                 params: {
-                    page: this.store.currentPage, //to do
+                    page: this.store.projects.currentPage, //to do
                     key: this.store.projects.searchKey,
                 }
             })

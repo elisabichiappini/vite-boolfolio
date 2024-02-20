@@ -62,7 +62,7 @@ export default {
             this.$router.push({
                 name: 'projects',
                 query: {
-                    page: this.currentPage,
+                    page: this.currentPage, key: this.store.projects.searchKey
                 }
             })
         },
@@ -73,13 +73,14 @@ export default {
             this.$router.push({
                 name: 'projects',
                 query: {
-                    page: this.currentPage,
+                    page: this.currentPage, key: this.store.projects.searchKey
                 }
             })
         }
     },
     created() {
         this.currentPage = this.$route.query.page ?? 1;
+        this.store.projects.searchKey = this.$route.query.key?? null;
         this.getProject();
     },
 }

@@ -27,6 +27,8 @@ export default {
     methods: {
         //chiamata progetti
         getProject() {
+            //svuoto errori se rifaccio ricerca
+            this.errors = null,
             //attiva loader
             this.loading = true,
             axios

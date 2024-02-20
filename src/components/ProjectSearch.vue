@@ -11,6 +11,12 @@ export default {
     methods: {
         search() {
             console.log('sto cercando');
+            this.$router.push({
+                name: 'projects',
+                query: {
+                    page: 1, key: this.store.projects.searchKey 
+                }
+            }),
             this.$emit('searchProject');
         }
     },

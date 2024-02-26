@@ -5,5 +5,7 @@
 </script>
 
 <template>
-    <h2>about</h2>
+    <div class="text-center ec-page">
+        <h2>about</h2>  
+    </div>
 </template>

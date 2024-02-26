@@ -5,27 +5,9 @@
 </script>
 
 <template>
-    <footer class="pt-5">
-        <div class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Keyup_portfolio</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">Progetti</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contatti</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+    <footer class="position-relative bottom-0 end-0 start-0">
+        <div class="d-flex align-contents-center navbar navbar-expand-lg bg-body-tertiary">
+            <h6 class="text-center mb-0">Made with love</h6>
         </div>
     </footer>
 </template>

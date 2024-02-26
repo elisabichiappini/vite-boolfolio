@@ -4,7 +4,7 @@ import AppHome from './pages/AppHome.vue';
 import AppAbout from './pages/AppAbout.vue';
 import ProjectsList from './pages/ProjectsList.vue';
 import NotFound from './pages/NotFound.vue';
-import singleProject from './pages/SingleProject.vue';
+import SingleProject from './pages/SingleProject.vue';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -23,7 +23,7 @@ const router = createRouter({
             //gestione parametri
             path: '/keyup-portfolio/:slug',
             name: 'single-project',
-            component: singleProject,
+            component: SingleProject,
         },
         {
             //rotta 404

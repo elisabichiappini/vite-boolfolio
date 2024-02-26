@@ -2,11 +2,11 @@
 import { reactive  } from "vue";
 
 export const store = reactive ({
-    responseData: {},
-    project: {},
+    // responseData: {},
+    // project: {},
     projects: {
-        currentPage: null,
-        searchKey: '',
+        currentPage: 1, //null
+        searchKey: null, // ''
     },
     baseUrl: 'http://127.0.0.1:8000',
     apiUrl: 
@@ -16,3 +16,5 @@ export const store = reactive ({
     storageImage: '/storage/',
     loandig: true,
 })
+
+export default store;

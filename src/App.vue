@@ -4,7 +4,7 @@
 import AppHeader from './components/AppHeader.vue';
 import AppFooter from './components/AppFooter.vue';
 export default {
-    name: 'Boolfolio',
+    name: 'Keyup_Portfolio',
     components: { 
       AppHeader,
       AppFooter,
@@ -13,11 +13,13 @@ export default {
 </script>
 
 <template>
+  <!--header-->
   <AppHeader></AppHeader>
-  <!--router vuejs-->
-  <router-view></router-view>
-  <!--router vuejs-->
+  <!--/header-->
+  <!--main router vuejs-->
+  <router-view class="text-white"></router-view>
+  <!--/main router vuejs-->
+  <!--footer-->
   <AppFooter></AppFooter>
+  <!--/footer-->
 </template>
-
-<style scoped></style>

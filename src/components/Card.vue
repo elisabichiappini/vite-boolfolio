@@ -1,13 +1,6 @@
 <script>
-//importazione stato globale
-import { store } from '../store';
 export default {
     name: 'CardMain',
-    data() {
-        return {
-            store,
-        }
-    },
     props: {
         project: Object,
     }

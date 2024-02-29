@@ -3,7 +3,7 @@ import { reactive  } from "vue";
 
 export const store = reactive ({
     // responseData: {},
-    // project: {},
+    project: {},
     projects: {
         currentPage: 1, //null
         searchKey: null, // ''
@@ -11,9 +11,9 @@ export const store = reactive ({
     baseUrl: 'http://127.0.0.1:8000',
     apiUrl: 
         {
-            projects: '/api/projects'
+            projects: '/api/projects',
+            storageImage: '/storage/'
         },
-    storageImage: '/storage/',
     loandig: true,
 })
 

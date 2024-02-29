@@ -16,9 +16,11 @@ export default {
         getProject() {
             this.loading = true,
             axios
-                .get(this.store.baseUrl + this.store.apiUrl + '/' + this.$route.params.slug) //http://127.0.0.1:8000/api/projects/esse-nulla
+                .get(this.store.baseUrl + this.store.apiUrl.projects + '/' + this.$route.params.slug) //http://127.0.0.1:8000/api/projects/esse-nulla
                 .then((response) => {
+                    console.log(this.$route);
                     if(response.data.success) {
+                        this.loading = false;
                         this.project = response.data.result;
                     } else {
                         this.loading = false;
@@ -47,29 +49,30 @@ export default {
             <!--link per tornare alla lista dei progetti-->
             <router-link :to="{ name: 'projects', query: { page: store.projects.currentPage, key: store.projects.searchKey }}" class="text-end">Lista progetti</router-link>
             <!--/link per tornare alla lista dei progetti-->
-
-
-            
-
             <!--mostra titolo progetto-->
             <h1>{{ project.title }}</h1>
             <!--/mostra titolo progetto-->
             <!--inserisci immagine se presente-->
-            <img v-if="project.project_img" class="img-fluid" :src="this.store.baseUrl + this.store.storageImage + project.project_img" :alt="project.title">
+            <img v-if="project.project_img" class="img-fluid" :src="this.store.baseUrl + this.store.apiUrl.storageImage + project.project_img" :alt="project.title">
             <!--/inserisci immagine se presente-->
             <!--mostra content progetto-->
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. In iste totam, maiores deleniti dicta harum odit explicabo facere nulla. Illo consequatur quia quibusdam atque harum accusantium ad aliquam fugiat rerum!</p>
+            <p>{{ project.description }}</p>
             <!--/mostra content progetto-->
 
             <!--mostra categoria se presente-->
-            <p v-if="project.type">Categoria: {{ project.type.title }}</p>
+            <div v-if="project.type">Categoria: 
+                    <span  class="badge bg-warning">{{ project.type.title }}</span>
+            </div>
             <!--/mostra categoria se presente-->
             <!--mostra tecnologia utilizza se presente-->
-            <p v-if="project.technologies">Tags: {{ project.technologies.title }}</p>
+            <div v-if="project.technologies">
+            Tags: 
+                <span v-for="technology in project.technologies" class="me-2 badge bg-info text-white">
+                    {{ technology.title }}
+                </span>
+            </div>
             <!--mostra tecnologia utilizza se presente-->
         </section>
-
-
 
         <hr class="container text-primary">
 

@@ -12,11 +12,12 @@ export default {
             project: {},
             formData : {
                 author: null,
-                content:null,
+                content: null,
             }
         }
     },
     methods: {
+        //chiamata projects
         getProject() {
             this.loading = true,
             axios
@@ -39,11 +40,23 @@ export default {
                 }
             );
         },
+        //chiamata aggiungo un commento
         addComment() {
             console.log('clicco');
             console.log(this.formData.author);
             console.log(this.formData.content);
             console.log(this.project.id);
+
+            const data = {
+                author: this.formData.author,
+                content: this.formData.content,
+                post_id: this.project.id,
+            };
+            axios
+            .post(this.store.baseUrl + this.store.apiUrl.comments, data)
+            .then((response) => {
+                console.log(response);
+            })
         }
     },
     created() {

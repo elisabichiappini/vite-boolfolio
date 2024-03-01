@@ -9,7 +9,11 @@ export default {
         return {
             store,
             loading: false,
-            project: {}
+            project: {},
+            formData : {
+                author: null,
+                content:null,
+            }
         }
     },
     methods: {
@@ -18,7 +22,6 @@ export default {
             axios
                 .get(this.store.baseUrl + this.store.apiUrl.projects + '/' + this.$route.params.slug) //http://127.0.0.1:8000/api/projects/esse-nulla
                 .then((response) => {
-                    console.log(this.$route);
                     if(response.data.success) {
                         this.loading = false;
                         this.project = response.data.result;
@@ -36,6 +39,12 @@ export default {
                 }
             );
         },
+        addComment() {
+            console.log('clicco');
+            console.log(this.formData.author);
+            console.log(this.formData.content);
+            console.log(this.project.id);
+        }
     },
     created() {
         this.getProject();
@@ -60,34 +69,54 @@ export default {
             <!--/mostra content progetto-->
 
             <!--mostra categoria se presente-->
-            <div v-if="project.type">Categoria: 
-                    <span  class="badge bg-warning">{{ project.type.title }}</span>
+            <div v-if="project.type">
+                <p>Categoria: <span class="badge bg-warning">{{ project.type.title }}</span></p>
             </div>
             <!--/mostra categoria se presente-->
             <!--mostra tecnologia utilizza se presente-->
             <div v-if="project.technologies">
-            Tags: 
-                <span v-for="technology in project.technologies" class="me-2 badge bg-info text-white">
-                    {{ technology.title }}
-                </span>
+                <p>Tags: 
+                    <span v-for="technology in project.technologies" class="me-2 badge bg-info text-white">{{ technology.title }}</span>
+                </p>
             </div>
             <!--mostra tecnologia utilizza se presente-->
         </section>
 
         <hr class="container text-primary">
 
+        
         <section id="comments" class="container text-white">
-            <h5>Commenti</h5>
-            <ul v-if="project.comments">
-                <li>
-                    <h6>Autore:</h6>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis quo, fugiat doloribus quas alias omnis consectetur rem facere dolor nihil quia adipisci laborum delectus enim repellendus earum nulla asperiores! Voluptas!</p>
+            <!--rappresentazione commenti in pagina-->
+            <h5>Commento</h5>
+            <!--condizione: se project.comments ha una lunghezza allora mi restituisce ul -->
+            <ul v-if="project.comments?.length">
+                <li v-for="comment in project.comments" class="list-unstyled">
+                    <h6>di {{ comment.author ?? 'Utente anonimo'}}</h6>
+                    <p>{{ comment.content }}</p>
                 </li>
             </ul>
-            <div v-else>nessun commento trovato</div>
-            <div id="creator-comment" class="container text-white">
-                
+            <!--altrimenti se non esiste mi restituisce un alert-->
+            <div v-else class="alert alert-primary" role="alert">
+                Nessun commento trovato!
             </div>
+            <!--rappresentazione commenti in pagina-->
+            <div class="py-3">
+                <!--form per creazione commenti: all'invio del form si scatena un evento -->
+                <form action="" method="" @submit.prevent="addComment">
+                    <div class="mb-3">
+                        <label for="author" class="form-label">Autore</label>
+                        <input type="text" class="form-control" id="author" placeholder="Nome Cognome" v-model="formData.author">
+                    </div>
+                    <div class="mb-3">
+                        <label for="content" class="form-label">Commento</label>
+                        <textarea class="form-control" id="content" rows="3" v-model="formData.content"></textarea>
+                    </div>
+                    <button class="btn btn-outline-info" type="submit">Invia</button>
+                </form>
+                <!--/form per creazione commenti-->
+            </div>
+
+
         </section>
     </div>
     

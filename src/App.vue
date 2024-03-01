@@ -17,7 +17,7 @@ export default {
   <AppHeader></AppHeader>
   <!--/header-->
   <!--main router vuejs-->
-  <router-view class="text-white"></router-view>
+  <router-view></router-view>
   <!--/main router vuejs-->
   <!--footer-->
   <AppFooter></AppFooter>

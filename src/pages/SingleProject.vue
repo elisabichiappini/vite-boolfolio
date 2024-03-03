@@ -19,6 +19,11 @@ export default {
     methods: {
         //chiamata aggiungo un commento
         addComment() {
+            console.log('ho cliccato');
+            console.log(this.formData.author);
+            console.log(this.formData.content);
+            console.log(this.project.id);
+
             const data = {
                 author: this.formData.author,
                 content: this.formData.content,
@@ -29,6 +34,9 @@ export default {
             .post(this.store.baseUrl + this.store.apiUrl.comments, data)
             .then((response) => {
                 console.log(response);
+                if(response.status === 201) {
+                    this.project.comments.push(response.data);
+                }
             })
             .catch((error) => {
                 console.log(error);
@@ -115,7 +123,7 @@ export default {
             <!--rappresentazione commenti in pagina-->
             <div class="py-3">
                 <!--form per creazione commenti: all'invio del form si scatena un evento -->
-                <form action="" @submit.prevent="addComment">
+                <form action="" method="POST" @submit.prevent="addComment">
 
                     <div class="mb-3">
                         <label for="author" class="form-label">Autore</label>

@@ -12,7 +12,7 @@ export const store = reactive ({
     apiUrl: 
         {
             projects: '/api/projects',
-            storageImage: '/storage',
+            storageImage: '/storage/',
             comments: '/api/comments'
         },
     loandig: true,

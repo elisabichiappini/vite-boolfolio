@@ -19,18 +19,20 @@ export default {
     methods: {
         //chiamata aggiungo un commento
         addComment() {
-            console.log('clicco');
-            console.log(this.formData.author);
-            console.log(this.formData.content);
-            console.log(this.project.id);
-
-            // const data = {
-            //     author: this.formData.author,
-            //     content: this.formData.content,
-            //     project_id : this.project.id,
-            // }
-
-            axios.post(this.store.baseUrl + this.store.apiUrl.comments)
+            const data = {
+                author: this.formData.author,
+                content: this.formData.content,
+                project_id: this.project.id,
+            }
+            //api comments
+            axios
+            .post(this.store.baseUrl + this.store.apiUrl.comments, data)
+            .then((response) => {
+                console.log(response);
+            })
+            .catch((error) => {
+                console.log(error);
+            })
         },
 
         //chiamata projects
@@ -113,7 +115,8 @@ export default {
             <!--rappresentazione commenti in pagina-->
             <div class="py-3">
                 <!--form per creazione commenti: all'invio del form si scatena un evento -->
-                <form action="" method="" @submit.prevent="addComment">
+                <form action="" @submit.prevent="addComment">
+
                     <div class="mb-3">
                         <label for="author" class="form-label">Autore</label>
                         <input type="text" class="form-control" id="author" placeholder="Nome Cognome" v-model="formData.author">
@@ -124,7 +127,7 @@ export default {
                     </div>
                     <button class="btn btn-outline-info" type="submit">Invia</button>
                 </form>
-                <!--/form per creazione commenti-->
+                <!--/form per creazione commenti: all'invio del form si scatena un evento -->
             </div>
 
 

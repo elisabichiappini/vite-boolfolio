@@ -30,14 +30,7 @@ export default {
             //     project_id : this.project.id,
             // }
 
-            // axios
-            // .post(this.store.baseUrl + this.store.apiUrl.comments, data)
-            // .then((response) => {
-            //     console.log(response);
-            // })
-            // .catch((error) => {
-            //     console.log(error);
-            // })
+            axios.post(this.store.baseUrl + this.store.apiUrl.comments)
         },
 
         //chiamata projects
